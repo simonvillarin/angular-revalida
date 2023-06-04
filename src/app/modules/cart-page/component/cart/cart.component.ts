@@ -10,6 +10,6 @@ export class CartComponent {
   constructor(private router: Router){}
 
   checkout() {
-    this.router.navigate(['user/checkout/page']);
+    this.router.navigate(['user/checkout']);
   }
 }
