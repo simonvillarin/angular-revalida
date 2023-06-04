@@ -30,7 +30,13 @@ const routes: Routes = [
     path: 'user/order/details',
     loadChildren: () =>
       import('./modules/order-details/order-details.module').then(m => m.OrderDetailsModule)
+  },
+  {
+    path: 'user/cart/page',
+    loadChildren: () =>
+      import('./modules/cart-page/cart-page.module').then(m => m.CartPageModule)
   }
+
 ];
 
 @NgModule({

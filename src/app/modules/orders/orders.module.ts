@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OurdersRoutingModule } from './orders-routing.module';
-import { AllTabsComponent } from './pages/all-tabs/all-tabs.component';
+import { AllTabsComponent } from './component/all-tabs/all-tabs.component';
 import { OrdersItemComponent } from './component/orders-item/orders-item.component';
-import { PendingOrdersComponent } from './pages/pending-orders/pending-orders.component';
+import { PendingOrdersComponent } from './component/pending-orders/pending-orders.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -11,11 +12,12 @@ import { PendingOrdersComponent } from './pages/pending-orders/pending-orders.co
   declarations: [
     OrdersItemComponent,
     AllTabsComponent,
-    PendingOrdersComponent
+    PendingOrdersComponent,
   ],
   imports: [
     CommonModule,
     OurdersRoutingModule,
+    SharedModule
   ]
 })
 export class OrdersModule { }
