@@ -1,27 +1,100 @@
-<div class="wrapper">
-  <div class="sidebar">
-    <div class="logo">Logo</div>
-    <nav>
-      <div class="link" routerLink="/dashboard">
-        <mat-icon fontIcon="dashboard"></mat-icon>Dashboard
-      </div>
-      <div class="link" routerLink="products">
-        <mat-icon fontIcon="inventory"></mat-icon>Products
-      </div>
-      <div class="link" routerLink="users">
-        <mat-icon fontIcon="person"></mat-icon>Users
-      </div>
-    </nav>
+<header>
+  <div class="location">Dashboard</div>
+  <div class="icon">
+    <mat-icon fontIcon="person"></mat-icon><span>Logout</span>
   </div>
-  <main>
-    <header>
-      <div class="location">Dashboard</div>
-      <div class="icon">
-        <mat-icon fontIcon="person"></mat-icon><span>Logout</span>
+</header>
+<div class="main-container">
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <div class="data">55</div>
+          <div class="name">Active Users</div>
+        </div>
+        <div class="icon-box">
+          <i class="bi bi-person-circle"></i>
+        </div>
       </div>
-    </header>
-    <div class="main-container">
-      <router-outlet></router-outlet>
     </div>
-  </main>
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <div class="data">66</div>
+          <div class="name">Total Sales</div>
+        </div>
+        <div class="icon-box">
+          <i class="bi bi-graph-up"></i>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div>
+          <div class="data">34</div>
+          <div class="name">Total Orders</div>
+        </div>
+        <div class="icon-box">
+          <i class="bi bi-bar-chart-line-fill"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div style="width:100%;">
+      <div><canvas id="lineChart"></canvas></div>
+    </div>
+  </div>
+  <div class="contianer">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Ranking</td>
+          <td>Item</td>
+          <td>Price</td>
+          <td>Total Sales</td>
+          <td>Total Qty</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Desktop</td>
+          <td>90.00</td>
+          <td>900.00</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Laptop</td>
+          <td>155.70</td>
+          <td>10,899.00</td>
+          <td>70</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Mother Board</td>
+          <td>1054.30</td>
+          <td>31,629.00</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>SSD</td>
+          <td>110.00</td>
+          <td>11,000.00</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Keyboard</td>
+          <td>190.00</td>
+          <td>9,500.00</td>
+          <td>50</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>

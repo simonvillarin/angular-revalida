@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="sidebar">
+      <div class="logo">Logo</div>
+      <nav>
+        <div class="link" routerLink="/dashboard">
+          <mat-icon fontIcon="dashboard"></mat-icon>Dashboard
+        </div>
+        <div class="link" routerLink="/dashboard/products">
+          <mat-icon fontIcon="inventory"></mat-icon>Products
+        </div>
+        <div class="link" routerLink="/dashboard/users">
+          <mat-icon fontIcon="person"></mat-icon>Users
+        </div>
+      </nav>
+    </div>
+    <main>
+     <router-outlet/>
+    </main>
+  </div>
