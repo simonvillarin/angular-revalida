@@ -26,11 +26,11 @@ const routes: Routes = [
         (m) => m.CategoryModule
       ),
   },
-  {
-    path: '',
-    loadChildren: () =>
-      import('./modules/orders/orders.module').then(m => m.OrdersModule)
-  },
+  // {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./modules/orders/orders.module').then(m => m.OrdersModule)
+  // },
   {
     path: '',
     loadChildren: () =>
