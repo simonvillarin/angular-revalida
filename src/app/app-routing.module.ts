@@ -3,31 +3,36 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./modules/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('./modules/main-page/main-page.module').then(
         (m) => m.MainPageModule
       ),
   },
   {
-    path: 'category',
+    path: '',
     loadChildren: () =>
       import('./modules/category/category.module').then(
         (m) => m.CategoryModule
       ),
   },
   {
-    path: 'user/orders',
+    path: '',
     loadChildren: () =>
       import('./modules/orders/orders.module').then(m => m.OrdersModule)
   },
   {
-    path: 'user/order/details',
+    path: '',
     loadChildren: () =>
       import('./modules/order-details/order-details.module').then(m => m.OrderDetailsModule)
   },

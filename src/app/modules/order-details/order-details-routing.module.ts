@@ -5,7 +5,7 @@ import { OrderDetailsComponent } from './pages/order-details/order-details.compo
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user/order/details',
     component: OrderDetailsComponent
   }
 ]
