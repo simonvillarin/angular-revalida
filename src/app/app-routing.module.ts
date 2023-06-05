@@ -40,10 +40,17 @@ const routes: Routes = [
         (m) => m.SignupModule
       )
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/forgot-password/forgot-password.module').then(
+        (m) => m.ForgotPasswordModule
+      )
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

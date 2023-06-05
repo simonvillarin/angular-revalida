@@ -15,10 +15,16 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 export class SignupFormComponent {
 
   signupForm: FormGroup;
-  selectedDate: Date = new Date();
+  personalInfoForm: FormGroup;
+  loginCredentialForm: FormGroup;
+  
   showPassword = false;
   showConfirmPassword = false;
   passwordMatch = true;
+
+
+  selectedDate: Date = new Date();
+  personalInfoValid = false;
 
   // Interest
   separatorKeysCodes: number[] = [13, 188]; // Enter and comma keycodes
@@ -33,18 +39,26 @@ export class SignupFormComponent {
     private datePipe: DatePipe,
     private userService: UserService
   ) {
-    this.signupForm = this.fb.group({
+
+    this.personalInfoForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       middleName: [''],
       birthdate: [null, [Validators.required]],
+    });
+
+    this.loginCredentialForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPass: ['', Validators.required],
     });
 
-    
+    this.signupForm = this.fb.group({
+      personalInfoForm: this.personalInfoForm,
+      loginCredentialForm: this.loginCredentialForm
+    });
+
     this.signupForm.get('password')?.valueChanges.subscribe(() => {
       this.checkPasswordMatch();
     });
@@ -57,7 +71,21 @@ export class SignupFormComponent {
         interest ? this._filter(interest) : this.allInterests.slice()
       )
     );
+    this.signupForm.valueChanges.subscribe(() => {
+      this.personalInfoValid = this.isPersonalInfoValid();
+    });
   }
+  
+  isPersonalInfoValid(): boolean {
+    const firstNameValid = this.signupForm.get('firstName')?.valid ?? false;
+    const lastNameValid = this.signupForm.get('lastName')?.valid ?? false;
+    const birthdateValid = this.signupForm.get('birthdate')?.valid ?? false;
+    const interestsValid = this.interests.length >= 3;
+  
+    return firstNameValid && lastNameValid && birthdateValid && interestsValid;
+  }
+  
+
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value && !this.interests.includes(value)) {
